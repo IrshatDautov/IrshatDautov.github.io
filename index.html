@@ -186,18 +186,24 @@
         <p>
           В рамках проектной практики НИЯУ МИФИ создан лазерный гравер. Роль в команде — инженер-электронщик.
         </p>
-        <div class="gallery">
-          <img src="images/cnc/cnc_1.png" alt="1"
-          <img src="images/cnc/cnc_2.png" alt="2"
-          <img src="images/cnc/cnc_3.jpg" alt="3"
+
+        <!-- Кнопка для открытия галереи -->
+        <button id="toggleGalleryCNC" class="btn">Показать галерею</button>
+
+        <!-- Галерея (изначально скрыта) -->
+        <div id="galleryCNC" class="gallery" style="display: none; margin-top: 1rem;">
+          <img src="images/cnc/cnc_1.png" alt="ЧПУ станок в сборке">
+          <img src="images/cnc/cnc_2.png" alt="Гравировка на дереве">
+          <img src="images/cnc/cnc_3.jpg" alt="Электронная схема">
         </div>
-        <a href="https://habr.com/ru/articles/907868/" target="_blank" class="btn">Читать статью</a>
+
+        <a href="https://habr.com/ru/articles/907868/" target="_blank" class="btn" style="margin-top: 1rem;">Читать статью</a>
       </div>
 
       <!-- Робот-погрузчик -->
       <div class="project" style="margin-top: 3rem;">
         <h3>Робот-погрузчик</h3>
-         <p>
+        <p>
           В рамках инженерных игр НИЯУ МИФИ разработан миниатюрный робот-погрузчик, способный распознавать цвет грузов, выполнять захват, подъём и транспортировку. Роль в команде — инженер-электронщик.
         </p>
         <ul>
@@ -216,11 +222,16 @@
             <li>Выключатель Miniature Toggle Switch MTS-102 SPDT</li>
           </ul>
         </ul>
-        <div class="gallery">
-          <img src="images/robot/robot_1.jpg" alt="1">
-          <img src="images/robot/robot_2.jpg" alt="2">
-          <img src="images/robot/robot_3.png" alt="3">
-          <img src="images/robot/robot_4.jpg" alt="4">
+
+        <!-- Кнопка для открытия галереи -->
+        <button id="toggleGalleryRobot" class="btn">Показать галерею</button>
+
+        <!-- Галерея (изначально скрыта) -->
+        <div id="galleryRobot" class="gallery" style="display: none; margin-top: 1rem;">
+          <img src="images/robot/robot_1.jpg" alt="Робот-погрузчик">
+          <img src="images/robot/robot_2.jpg" alt="3D-модель">
+          <img src="images/robot/robot_3.png" alt="Электронная схема">
+          <img src="images/robot/robot_4.jpg" alt="Постер команды">
         </div>
       </div>
     </section>
@@ -230,8 +241,7 @@
       <h2>Сертификаты</h2>
       <h3>Квалификация «Оформитель технической документации»</h3>
       <div class="gallery">
-        <img src="images/certs/1.jpg" alt="Сертификат 1">
-        <img src="images/certs/2.jpg" alt="Сертификат 2">
+        <img src="images/certs/certs_1.jpg" alt="Свидетельство">
       </div>
     </section>
 
@@ -239,9 +249,34 @@
     <section id="contacts" class="contacts">
       <h2>Контакты</h2>
       <p>📧 <strong>Email:</strong> irshat.dautov2@gmail.com</p>
-      <p>📱 <strong>Telegram:</strong> <a href="https://t.me/iirshat">@iirshat</a></p>
+      <p>📱 <strong>Telegram:</strong> <a href="https://t.me/iirshat"> @iirshat</a></p>
     </section>
   </main>
+
+  <!-- Скрипт для работы кнопок галереи -->
+  <script>
+    function toggleGallery(galleryId, buttonId) {
+      const gallery = document.getElementById(galleryId);
+      const button = document.getElementById(buttonId);
+
+      if (gallery.style.display === 'none') {
+        gallery.style.display = 'grid';
+        button.textContent = 'Скрыть галерею';
+      } else {
+        gallery.style.display = 'none';
+        button.textContent = 'Показать галерею';
+      }
+    }
+
+    // Привязываем кнопки к галереям
+    document.getElementById('toggleGalleryCNC').addEventListener('click', function() {
+      toggleGallery('galleryCNC', 'toggleGalleryCNC');
+    });
+
+    document.getElementById('toggleGalleryRobot').addEventListener('click', function() {
+      toggleGallery('galleryRobot', 'toggleGalleryRobot');
+    });
+  </script>
 
 </body>
 </html>
