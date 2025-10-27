@@ -1,44 +1,236 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Моё портфолио</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Портфолио</title>
   <style>
-    body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
-    h1, h2 { color: #2c3e50; }
-    img { max-width: 100%; height: auto; margin: 15px 0; border-radius: 8px; }
-    .section { margin-bottom: 40px; }
+    :root {
+      --green: #2e8b57;       /* SeaGreen */
+      --green-light: #e8f5e9;
+      --green-dark: #1b5e20;
+      --text: #333;
+      --bg: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+
+    header {
+      background-color: var(--green);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+    }
+
+    nav {
+      background-color: var(--green-dark);
+      padding: 0.8rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    section {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    h2 {
+      color: var(--green);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--green-light);
+    }
+
+    h3 {
+      margin: 1.5rem 0 1rem;
+      color: var(--green-dark);
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      margin-bottom: 1.2rem;
+      padding-left: 1.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--green);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: var(--green-dark);
+    }
+
+    .contacts p {
+      margin: 0.6rem 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      color: #666;
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Моё портфолио</h1>
 
-  <div class="section">
-    <h2>Лазерный ЧПУ станок</h2>
-    <p>Самодельный станок на базе Arduino и GRBL. Точность гравировки — до 0.1 мм.</p>
-    <!-- Позже замени на свои фото -->
-    <p><em>Фото будут здесь после загрузки в папку</em></p>
-  </div>
+  <header>
+    <h1>Портфолиo</h1>
+    <p>Инженерные проекты</p>
+  </header>
 
-  <div class="section">
-    <h2>Робот-погрузчик</h2>
-    <p>Автономный робот на Raspberry Pi с компьютерным зрением для перемещения грузов.</p>
-  </div>
-
-  <div class="section">
-    <h2>Сертификаты</h2>
+  <nav>
     <ul>
-      <li>Курс по робототехнике — XYZ Academy</li>
-      <li>Хакатон "Инженеры будущего" — 2024</li>
+      <li><a href="#about">Обо мне</a></li>
+      <li><a href="#projects">Проекты</a></li>
+      <li><a href="#certs">Сертификаты</a></li>
+      <li><a href="#contacts">Контакты</a></li>
     </ul>
-  </div>
+  </nav>
 
-  <div class="section">
-    <h2>Контакты</h2>
-    <p>📧 email@example.com<br>
-       📱 Telegram: @yourname<br>
-       🔗 <a href="https://linkedin.com/in/yourname">LinkedIn</a>
-    </p>
-  </div>
+  <main>
+    <!-- Обо мне -->
+    <section id="about">
+      <h2>Обо мне</h2>
+      <p>
+        Иршат Даутов, студент 3 курса НИЯУ МИФИ, направление «Мехатроника и робототехника», участник инженерного кружка Engi-Teams
+      </p>
+    </section>
+
+    <!-- Проекты -->
+    <section id="projects">
+      <h2>Проекты</h2>
+
+      <!-- Лазерный ЧПУ станок -->
+      <div class="project">
+        <h3>Лазерный ЧПУ станок</h3>
+        <ul>
+          <li>Самодельный станок на базе Arduino и GRBL</li>
+          <li>Диодный лазер мощностью 10 Вт для гравировки дерева, пластика и кожи</li>
+          <li>Точность позиционирования — ±0.1 мм</li>
+          <li>Управление через ПО LaserGRBL</li>
+        </ul>
+        <div class="gallery">
+          <img src="images/cnc/1.jpg" alt="ЧПУ станок в сборке">
+          <img src="images/cnc/2.jpg" alt="Гравировка на дереве">
+          <img src="images/cnc/3.jpg" alt="Электронная схема">
+        </div>
+        <a href="https://habr.com/ru/articles/907868/" target="_blank" class="btn">Читать статью</a>
+      </div>
+
+      <!-- Робот-погрузчик -->
+      <div class="project" style="margin-top: 3rem;">
+        <h3>Робот-погрузчик</h3>
+        <ul>
+          <li>Автономный робот на Raspberry Pi и Arduino</li>
+          <li>Распознавание объектов с помощью OpenCV</li>
+          <li>Перемещение грузов по складу</li>
+          <li>Оснащён ультразвуковыми датчиками и сервоприводом для захвата</li>
+        </ul>
+        <div class="gallery">
+          <img src="images/robot/1.jpg" alt="Робот-погрузчик">
+          <img src="images/robot/2.jpg" alt="Тестирование захвата">
+          <img src="images/robot/3.jpg" alt="Схема управления">
+        </div>
+      </div>
+    </section>
+
+    <!-- Сертификаты -->
+    <section id="certs">
+      <h2>Сертификаты</h2>
+      <h3>Квалификация «Оформитель технической документации»</h3>
+      <div class="gallery">
+        <img src="images/certs/1.jpg" alt="Сертификат 1">
+        <img src="images/certs/2.jpg" alt="Сертификат 2">
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" class="contacts">
+      <h2>Контакты</h2>
+      <p>📧 <strong>Email:</strong> irshat.dautov2@gmail.com</p>
+      <p>📱 <strong>Telegram:</strong> <a href="https://t.me/iirshat">@iirshat</a></p>
+    </section>
+  </main>
+
 </body>
 </html>
